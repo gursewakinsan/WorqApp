@@ -1,0 +1,974 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.Queue.OperatorStatusQueueListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="32" />
+                <RowDefinition />
+                <RowDefinition Height="44" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="117" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="117" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="15,0,0,0"
+                FontFamily="MaterialFontFamily"
+                FontSize="25"
+                HorizontalTextAlignment="Start"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+                TextColor="White"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="0,0,15,0"
+                Padding="0"
+                BackgroundColor="#342B20"
+                CornerRadius="8"
+                FontAttributes="Bold"
+                FontFamily="PoppinsSemiBoldFontFamily"
+                FontSize="12"
+                HeightRequest="32"
+                HorizontalOptions="EndAndExpand"
+                Text="Join a table"
+                TextColor="#5DA1A6"
+                WidthRequest="102" />
+
+            <StackLayout
+                Grid.Row="1"
+                Grid.ColumnSpan="3"
+                Padding="28,20,28,0"
+                Spacing="0"
+                VerticalOptions="StartAndExpand">
+                <Label
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="16"
+                    HorizontalTextAlignment="Start"
+                    MaxLines="1"
+                    Opacity="0.5"
+                    Text="Wait list"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Margin="0,4,0,0"
+                    FontAttributes="Bold"
+                    FontFamily="PoppinsBoldFontFamily"
+                    FontSize="32"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Text="{Binding SelectedOperatorQueue.QueueName}"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <BoxView
+                    Margin="0,28,0,28"
+                    BackgroundColor="White"
+                    HeightRequest="1"
+                    Opacity="0.2" />
+
+                <Grid ColumnSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="32" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="88" />
+                        <ColumnDefinition Width="99" />
+                        <ColumnDefinition Width="83" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Padding="0"
+                        BackgroundColor="{Binding WaitingButtonBg}"
+                        Command="{Binding TabSelectedCommand}"
+                        CommandParameter="Waiting"
+                        CornerRadius="12"
+                        FontFamily="PoppinsSemiBoldFontFamily"
+                        FontSize="12"
+                        Text="Waiting"
+                        TextColor="White" />
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="0"
+                        BackgroundColor="{Binding InServiceButtonBg}"
+                        Command="{Binding TabSelectedCommand}"
+                        CommandParameter="In service"
+                        CornerRadius="12"
+                        FontFamily="PoppinsSemiBoldFontFamily"
+                        FontSize="12"
+                        Text="In service"
+                        TextColor="White" />
+
+                    <Button
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Padding="0"
+                        BackgroundColor="{Binding ServicedButtonBg}"
+                        Command="{Binding TabSelectedCommand}"
+                        CommandParameter="Served"
+                        CornerRadius="12"
+                        FontFamily="PoppinsSemiBoldFontFamily"
+                        FontSize="12"
+                        Text="Served"
+                        TextColor="White" />
+                </Grid>
+
+                <Label
+                    Margin="0,45,0,25"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="16"
+                    HorizontalOptions="Start"
+                    MaxLines="1"
+                    Text="{Binding ListTopText}"
+                    TextColor="White"
+                    VerticalOptions="Start" />
+
+                <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+                    <StackLayout>
+                        <StackLayout
+                            BindableLayout.ItemsSource="{Binding WaitingList}"
+                            IsVisible="{Binding IsWaiting}"
+                            Orientation="Vertical">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid
+                                        Margin="0,0,0,20"
+                                        Padding="20,0,20,0"
+                                        ColumnSpacing="15"
+                                        HeightRequest="80">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnGridWaitingListTapped" />
+                                        </Grid.GestureRecognizers>
+                                        <Frame
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="-20,0,-20,0"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="White"
+                                            CornerRadius="16"
+                                            HasShadow="False"
+                                            HeightRequest="80"
+                                            IsClippedToBounds="True"
+                                            Opacity="0.2"
+                                            VerticalOptions="StartAndExpand">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnFrameWaitingListTapped" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+
+                                        <StackLayout
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="StartAndExpand"
+                                            Spacing="2"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="PoppinsBoldFontFamily"
+                                                FontSize="18"
+                                                HorizontalTextAlignment="Start"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Text="{Binding GuestName}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+
+                                            <Label
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                FontSize="14"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Opacity="0.5"
+                                                TextColor="White">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding TotalPerson}" />
+                                                        <Span Text=" people" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <Button
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Padding="0"
+                                            BackgroundColor="#223426"
+                                            Clicked="OnWaitingListButtonClicked"
+                                            CornerRadius="20"
+                                            FontFamily="MaterialFontFamily"
+                                            FontSize="25"
+                                            HeightRequest="40"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+                                            TextColor="#4FD471"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="40" />
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                        <StackLayout
+                            BindableLayout.ItemsSource="{Binding InserviceInfoList}"
+                            IsVisible="{Binding IsInService}"
+                            Orientation="Vertical">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid
+                                        Margin="0,0,0,20"
+                                        Padding="20,0,20,0"
+                                        ColumnSpacing="15"
+                                        HeightRequest="80">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnGridInserviceInfoTapped" />
+                                        </Grid.GestureRecognizers>
+                                        <Frame
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="-20,0,-20,0"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="White"
+                                            CornerRadius="16"
+                                            HasShadow="False"
+                                            HeightRequest="80"
+                                            IsClippedToBounds="True"
+                                            Opacity="0.2"
+                                            VerticalOptions="StartAndExpand">
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnFrameInserviceInfoTapped" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+
+                                        <StackLayout
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="StartAndExpand"
+                                            Spacing="2"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="PoppinsBoldFontFamily"
+                                                FontSize="18"
+                                                HorizontalTextAlignment="Start"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Text="{Binding GuestName}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+
+                                            <Label
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                FontSize="14"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Opacity="0.5"
+                                                TextColor="White">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding TotalPerson}" />
+                                                        <Span Text=" people" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <Button
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Padding="0"
+                                            BackgroundColor="#223426"
+                                            Clicked="OnInserviceInfoButtonClicked"
+                                            CornerRadius="20"
+                                            FontFamily="MaterialFontFamily"
+                                            FontSize="25"
+                                            HeightRequest="40"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+                                            TextColor="#4FD471"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="40" />
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+
+                        <StackLayout
+                            BindableLayout.ItemsSource="{Binding ServicedInfoList}"
+                            IsVisible="{Binding IsServiced}"
+                            Orientation="Vertical">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid
+                                        Margin="0,0,0,20"
+                                        Padding="20,0,20,0"
+                                        ColumnSpacing="15"
+                                        HeightRequest="80">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="2"
+                                            Margin="-20,0,-20,0"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="White"
+                                            CornerRadius="16"
+                                            HasShadow="False"
+                                            HeightRequest="80"
+                                            IsClippedToBounds="True"
+                                            Opacity="0.2"
+                                            VerticalOptions="StartAndExpand" />
+
+                                        <StackLayout
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            HorizontalOptions="StartAndExpand"
+                                            Spacing="2"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontFamily="PoppinsBoldFontFamily"
+                                                FontSize="18"
+                                                HorizontalTextAlignment="Start"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Text="{Binding GuestName}"
+                                                TextColor="White"
+                                                VerticalTextAlignment="Center" />
+
+                                            <Label
+                                                FontFamily="PoppinsRegularFontFamily"
+                                                FontSize="14"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Opacity="0.5"
+                                                TextColor="White">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding TotalPerson}" />
+                                                        <Span Text=" people" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <Button
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Padding="0"
+                                            BackgroundColor="#223426"
+                                            CornerRadius="20"
+                                            FontFamily="MaterialFontFamily"
+                                            FontSize="25"
+                                            HeightRequest="40"
+                                            HorizontalOptions="CenterAndExpand"
+                                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+                                            TextColor="#4FD471"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="40" />
+                                    </Grid>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <Grid
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                ColumnSpacing="5"
+                RowSpacing="0">
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.HomeOutline}"
+                    TextColor="#5B5B79"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.SearchIcon}"
+                    TextColor="#5B5B79"
+                    VerticalTextAlignment="Center" />
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Padding="0"
+                    BackgroundColor="#6263ED"
+                    CornerRadius="22"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    HeightRequest="44"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="44" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.BellOutline}"
+                    TextColor="#5B5B79"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.AccountOutline}"
+                    TextColor="#5B5B79"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+    <!--<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30" />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="80" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="0"
+				Margin="15,0,0,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="Start"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+				TextColor="White"
+				VerticalTextAlignment="Center">
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding BackCommand}" />
+				</Label.GestureRecognizers>
+			</Label>
+
+			<Label
+				Grid.Row="0"
+				Grid.Column="2"
+				Margin="0,0,10,0"
+				FontFamily="{StaticResource MaterialFontFamily}"
+				FontSize="25"
+				HorizontalTextAlignment="End"
+				Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.DotsVertical}"
+				TextColor="White"
+				VerticalTextAlignment="Center" />
+
+			<ScrollView
+				Grid.Row="1"
+				Grid.ColumnSpan="3"
+				VerticalScrollBarVisibility="Never">
+				<StackLayout
+					Padding="15,20,15,0"
+					Spacing="0"
+					VerticalOptions="StartAndExpand">
+					<Label
+						FontFamily="SansProRegularFontFamily"
+						FontSize="15"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Text="{Binding SelectedOperatorQueue.DisplayCurrentDate}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Label
+						FontFamily="SansProBoldFontFamily"
+						FontSize="30"
+						HorizontalTextAlignment="Start"
+						MaxLines="1"
+						Text="{Binding SelectedOperatorQueue.QueueName}"
+						TextColor="White"
+						VerticalTextAlignment="Center" />
+
+					<Grid Margin="0,20,0,0" VerticalOptions="Start">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="100" />
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Button
+							Grid.Row="0"
+							Grid.Column="0"
+							Padding="0"
+							BackgroundColor="#253560"
+							CornerRadius="50"
+							FontSize="40"
+							HeightRequest="100"
+							HorizontalOptions="Start"
+							Text="{Binding SelectedOperatorQueue.FirstLetterName}"
+							TextColor="White"
+							VerticalOptions="Center"
+							WidthRequest="100" />
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="1"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{Binding PersonInLine}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Postion"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="in line"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="2"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="{Binding SelectedOperatorQueue.TotalOperators}"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Operator"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="available"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="0"
+							Grid.Column="3"
+							HorizontalOptions="CenterAndExpand"
+							Spacing="0"
+							VerticalOptions="CenterAndExpand">
+							<Label
+								FontFamily="SansProBoldFontFamily"
+								FontSize="20"
+								HorizontalTextAlignment="Center"
+								Text="5"
+								TextColor="White" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="Active"
+								TextColor="#7d8fbe" />
+
+							<Label
+								FontFamily="SansProRegularFontFamily"
+								FontSize="10"
+								HorizontalTextAlignment="Center"
+								Text="operator"
+								TextColor="#7d8fbe" />
+						</StackLayout>
+					</Grid>
+
+					<BoxView
+						Margin="0,20,0,20"
+						BackgroundColor="White"
+						HeightRequest="1"
+						Opacity="0.5" />
+
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="25" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition />
+							<ColumnDefinition />
+						</Grid.ColumnDefinitions>
+						<Label
+							Grid.Row="0"
+							Grid.Column="0"
+							FontFamily="SansProBoldFontFamily"
+							FontSize="20"
+							HorizontalTextAlignment="Start"
+							Text="Waiting"
+							TextColor="{Binding WaitingTabTextColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding TabSelectedCommand}" CommandParameter="Waiting" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							Grid.Row="0"
+							Grid.Column="1"
+							FontFamily="SansProBoldFontFamily"
+							FontSize="20"
+							HorizontalTextAlignment="Center"
+							Text="In service"
+							TextColor="{Binding InServiceTabTextColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding TabSelectedCommand}" CommandParameter="In service" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<Label
+							Grid.Row="0"
+							Grid.Column="2"
+							FontFamily="SansProBoldFontFamily"
+							FontSize="20"
+							HorizontalTextAlignment="End"
+							Text="Serviced"
+							TextColor="{Binding ServicedTabTextColor}"
+							VerticalTextAlignment="Center">
+							<Label.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding TabSelectedCommand}" CommandParameter="Serviced" />
+							</Label.GestureRecognizers>
+						</Label>
+
+						<StackLayout
+							Grid.Row="1"
+							Grid.ColumnSpan="3"
+							Margin="0,20,0,10"
+							BindableLayout.ItemsSource="{Binding WaitingList}"
+							IsVisible="{Binding IsWaiting}">
+							<BindableLayout.ItemTemplate>
+								<DataTemplate>
+									<Grid ColumnSpacing="10" RowSpacing="10">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="1" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="50" />
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="40" />
+										</Grid.ColumnDefinitions>
+										<Grid.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnWaitingListItemTapped" />
+										</Grid.GestureRecognizers>
+										<BoxView
+											Grid.Row="0"
+											Grid.Column="0"
+											BackgroundColor="#253560"
+											CornerRadius="25"
+											HeightRequest="50"
+											HorizontalOptions="Center"
+											VerticalOptions="Center"
+											WidthRequest="50" />
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="0"
+											FontFamily="SansProBoldFontFamily"
+											FontSize="20"
+											HorizontalTextAlignment="Center"
+											Text="{Binding FirstLetterName}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<StackLayout
+											Grid.Row="0"
+											Grid.Column="1"
+											Spacing="0"
+											VerticalOptions="CenterAndExpand">
+											<Label
+												FontFamily="SansProBoldFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												Text="{Binding GuestName}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="SansProRegularFontFamily"
+												FontSize="12"
+												HorizontalTextAlignment="Start"
+												TextColor="#7d8fbe"
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
+										</StackLayout>
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="2"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="20"
+											HorizontalTextAlignment="End"
+											Opacity="0.5"
+											Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+											TextColor="#7d8fbe"
+											VerticalTextAlignment="Center" />
+
+										<BoxView
+											Grid.Row="1"
+											Grid.ColumnSpan="3"
+											BackgroundColor="White"
+											Opacity="0.5" />
+									</Grid>
+								</DataTemplate>
+							</BindableLayout.ItemTemplate>
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="1"
+							Grid.ColumnSpan="3"
+							Margin="0,20,0,10"
+							BindableLayout.ItemsSource="{Binding InserviceInfoList}"
+							IsVisible="{Binding IsInService}">
+							<BindableLayout.ItemTemplate>
+								<DataTemplate>
+									<Grid ColumnSpacing="10" RowSpacing="10">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="1" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="50" />
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="40" />
+										</Grid.ColumnDefinitions>
+										<Grid.GestureRecognizers>
+											<TapGestureRecognizer Tapped="OnInServiceListItemTapped" />
+										</Grid.GestureRecognizers>
+										<BoxView
+											Grid.Row="0"
+											Grid.Column="0"
+											BackgroundColor="#253560"
+											CornerRadius="25"
+											HeightRequest="50"
+											HorizontalOptions="Center"
+											Opacity="0.5"
+											VerticalOptions="Center"
+											WidthRequest="50" />
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="0"
+											FontFamily="SansProBoldFontFamily"
+											FontSize="20"
+											HorizontalTextAlignment="Center"
+											Text="{Binding FirstLetterName}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<StackLayout
+											Grid.Row="0"
+											Grid.Column="1"
+											Spacing="0"
+											VerticalOptions="CenterAndExpand">
+											<Label
+												FontFamily="SansProBoldFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												Text="{Binding GuestName}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="SansProRegularFontFamily"
+												FontSize="12"
+												HorizontalTextAlignment="Start"
+												TextColor="#7d8fbe"
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
+										</StackLayout>
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="2"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="20"
+											HorizontalTextAlignment="End"
+											Opacity="0.5"
+											Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+											TextColor="#7d8fbe"
+											VerticalTextAlignment="Center" />
+
+										<BoxView
+											Grid.Row="1"
+											Grid.ColumnSpan="3"
+											BackgroundColor="White"
+											Opacity="0.5" />
+									</Grid>
+								</DataTemplate>
+							</BindableLayout.ItemTemplate>
+						</StackLayout>
+
+						<StackLayout
+							Grid.Row="1"
+							Grid.ColumnSpan="3"
+							Margin="0,20,0,10"
+							BindableLayout.ItemsSource="{Binding ServicedInfoList}"
+							IsVisible="{Binding IsServiced}">
+							<BindableLayout.ItemTemplate>
+								<DataTemplate>
+									<Grid ColumnSpacing="10" RowSpacing="10">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="auto" />
+											<RowDefinition Height="1" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="50" />
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="40" />
+										</Grid.ColumnDefinitions>
+
+										<BoxView
+											Grid.Row="0"
+											Grid.Column="0"
+											BackgroundColor="#253560"
+											CornerRadius="25"
+											HeightRequest="50"
+											HorizontalOptions="Center"
+											Opacity="0.5"
+											VerticalOptions="Center"
+											WidthRequest="50" />
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="0"
+											FontFamily="SansProBoldFontFamily"
+											FontSize="20"
+											HorizontalTextAlignment="Center"
+											Text="{Binding FirstLetterName}"
+											TextColor="White"
+											VerticalTextAlignment="Center" />
+
+										<StackLayout
+											Grid.Row="0"
+											Grid.Column="1"
+											Spacing="0"
+											VerticalOptions="CenterAndExpand">
+											<Label
+												FontFamily="SansProBoldFontFamily"
+												FontSize="14"
+												HorizontalTextAlignment="Start"
+												Text="{Binding GuestName}"
+												TextColor="White"
+												VerticalTextAlignment="Center" />
+
+											<Label
+												FontFamily="SansProRegularFontFamily"
+												FontSize="12"
+												HorizontalTextAlignment="Start"
+												TextColor="#7d8fbe"
+												VerticalTextAlignment="Center">
+												<Label.FormattedText>
+													<FormattedString>
+														<Span Text="Total person " />
+														<Span Text="{Binding TotalPerson}" />
+													</FormattedString>
+												</Label.FormattedText>
+											</Label>
+										</StackLayout>
+
+										<Label
+											Grid.Row="0"
+											Grid.Column="2"
+											FontFamily="{StaticResource MaterialFontFamily}"
+											FontSize="20"
+											HorizontalTextAlignment="End"
+											Opacity="0.5"
+											Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+											TextColor="#7d8fbe"
+											VerticalTextAlignment="Center" />
+
+										<BoxView
+											Grid.Row="1"
+											Grid.ColumnSpan="3"
+											BackgroundColor="White"
+											Opacity="0.5" />
+									</Grid>
+								</DataTemplate>
+							</BindableLayout.ItemTemplate>
+						</StackLayout>
+					</Grid>
+
+				</StackLayout>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>-->
+</ContentPage>

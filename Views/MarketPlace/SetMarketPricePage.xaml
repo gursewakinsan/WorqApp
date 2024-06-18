@@ -1,0 +1,2513 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.MarketPlace.SetMarketPricePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#1B1D24"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        Margin="0,22,0,0"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="24" />
+            <ColumnDefinition Width="40" />
+        </Grid.ColumnDefinitions>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="Transparent"
+            BorderColor="White"
+            BorderWidth="1"
+            Command="{Binding CloseCommand}"
+            CornerRadius="8"
+            Opacity="0.2" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            FontFamily="MaterialFontFamily"
+            FontSize="25"
+            HorizontalTextAlignment="Center"
+            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+            TextColor="White"
+            VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ScrollView
+            Grid.Row="2"
+            Grid.ColumnSpan="5"
+            VerticalScrollBarVisibility="Never">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="46" />
+                    <RowDefinition Height="7" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="24" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="24" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontFamily="PoppinsSemiBoldFontFamily"
+                    FontSize="33"
+                    HorizontalTextAlignment="Start"
+                    Text="Pricing"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Set a price"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Title"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <controls:CustomEntry
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="18"
+                    Placeholder="Title"
+                    PlaceholderColor="Gray"
+                    Text="{Binding Title}"
+                    TextColor="White" />
+
+                <BoxView
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    Opacity="0.2" />
+
+                <Label
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Price"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <controls:CustomEntry
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="18"
+                    Keyboard="Numeric"
+                    Placeholder="Price"
+                    PlaceholderColor="Gray"
+                    Text="{Binding Price}"
+                    TextColor="White" />
+
+                <BoxView
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    Opacity="0.2" />
+
+                <Label
+                    Grid.Row="12"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Descriptions"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Editor
+                    Grid.Row="13"
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="18"
+                    Placeholder="Descriptions"
+                    PlaceholderColor="Gray"
+                    Text="{Binding Descriptions}"
+                    TextColor="White" />
+
+                <BoxView
+                    Grid.Row="14"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    Opacity="0.2" />
+
+                <StackLayout
+                    Grid.Row="16"
+                    Grid.ColumnSpan="3"
+                    Padding="24"
+                    BackgroundColor="#242A37"
+                    Spacing="0">
+                    <Grid ColumnSpacing="0" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="80" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="3"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Prep time to next event"
+                            TextColor="White"
+                            VerticalTextAlignment="Start" />
+
+                        <BoxView
+                            Grid.Row="1"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="3"
+                            Grid.ColumnSpan="3"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Minimum time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding MinimumTime}"
+                                ItemsSource="{Binding MinimumTime}"
+                                SelectedItem="{Binding SelectedMinimumTime}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="5"
+                            Grid.ColumnSpan="3"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Preparation time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding PreparationTime}"
+                                ItemsSource="{Binding PreparationTime}"
+                                SelectedItem="{Binding SelectedPreparationTime}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="7"
+                            Grid.ColumnSpan="3"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Post production time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding PostProductionTime}"
+                                ItemsSource="{Binding PostProductionTime}"
+                                SelectedItem="{Binding SelectedPostProductionTime}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="9"
+                            Grid.ColumnSpan="3"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Is this a bookable service?"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsBookableService}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding IsBookableServiceCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsBookableService, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding IsBookableServiceCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="10"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="12"
+                            Grid.Column="0"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsBookingTypeControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Booking type"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding BookingType}"
+                                ItemsSource="{Binding BookingTypeModel}"
+                                SelectedItem="{Binding SelectedBookingTypeModel}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="12"
+                            Grid.Column="2"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsSharedTypeControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Shared type"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding SharedType}"
+                                ItemsSource="{Binding SharedTypeModel}"
+                                SelectedItem="{Binding SelectedSharedTypeModel}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="13"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsRecurringEventControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Is this a recurring event?"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsRecurringEvent}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding IsRecurringEventCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsRecurringEvent, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding IsRecurringEventCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="14"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsRecurringEventControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="15"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsEventDateControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Event date"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomDatePicker
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Date="{Binding SelectedEventDate}"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                Format="yyyy-MM-dd"
+                                MaximumDate="{Binding BindMaximumDate}"
+                                MinimumDate="{Binding BindMinimumDate}"
+                                Placeholder="Event date"
+                                TextColor="White" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="16"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsEventStartTimeControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding EventStartTime}"
+                                SelectedItem="{Binding SelectedEventStartTime}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="15"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsMondayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Monday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsMonday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Monday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsMonday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Monday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="16"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsMondayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="17"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsMonday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime1}"
+                                SelectedItem="{Binding SelectedWorkStartTime1}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="18"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsTuesdayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Tuesday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsTuesday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Tuesday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsTuesday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Tuesday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="19"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsTuesdayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="20"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsTuesday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime2}"
+                                SelectedItem="{Binding SelectedWorkStartTime2}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="21"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsWednesdayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Wednesday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsWednesday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Wednesday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsWednesday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Wednesday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="22"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsWednesdayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="23"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsWednesday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime3}"
+                                SelectedItem="{Binding SelectedWorkStartTime3}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="24"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsThursdayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Thursday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsThursday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Thursday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsThursday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Thursday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="25"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsThursdayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="26"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsThursday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime4}"
+                                SelectedItem="{Binding SelectedWorkStartTime4}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="27"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsFridayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Friday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsFriday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Friday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsFriday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Friday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="28"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsFridayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="29"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsFriday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime5}"
+                                SelectedItem="{Binding SelectedWorkStartTime5}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="30"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsSaturdayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Saturday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsSaturday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Saturday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsSaturday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Saturday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="31"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsSaturdayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="32"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsSaturday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime6}"
+                                SelectedItem="{Binding SelectedWorkStartTime6}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="33"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            IsVisible="{Binding IsSundayControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Sunday"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsSunday}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Sunday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsSunday, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding WeekdaysCommand}" CommandParameter="Sunday" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="34"
+                            Grid.ColumnSpan="3"
+                            Margin="50,0,0,0"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsSundayControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="35"
+                            Grid.ColumnSpan="3"
+                            Margin="50,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsSunday}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding WorkTime}"
+                                ItemsSource="{Binding WorkStartTime7}"
+                                SelectedItem="{Binding SelectedWorkStartTime7}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="36"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsPricePerX}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Price per x"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="37"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsPricePerX}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="38"
+                            Grid.Column="0"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsPricePerX}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Price"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Price"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerX}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="38"
+                            Grid.Column="2"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsPricePerX}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Allowed (max)"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Allowed (max)"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerXAllowedMax}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="39"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsPricePerY}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Price per y"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="40"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsPricePerY}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="41"
+                            Grid.Column="0"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsPricePerY}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Min per event"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Min per event"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerY}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="41"
+                            Grid.Column="2"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsPricePerY}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Allowed (max)"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Allowed (max)"
+                                PlaceholderColor="Gray"
+                                Text="{Binding PricePerYAllowedMax}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="43"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsAtCustomerLocationControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="At customer location?"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsAtCustomerLocation}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AtCustomerLocationCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsAtCustomerLocation, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding AtCustomerLocationCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="44"
+                            Grid.ColumnSpan="3"
+                            IsVisible="{Binding IsAtCustomerLocationControl}">
+                            <BoxView
+                                BackgroundColor="White"
+                                HeightRequest="1"
+                                Opacity="0.2" />
+
+                            <StackLayout IsVisible="{Binding IsTourFeeApplicableControl}" Orientation="Horizontal">
+                                <Label
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="16"
+                                    HorizontalTextAlignment="Start"
+                                    Opacity="0.70"
+                                    Text="Tour fee applicable"
+                                    TextColor="White"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    Grid.Row="10"
+                                    Grid.Column="1"
+                                    FontFamily="MaterialFontFamily"
+                                    FontSize="44"
+                                    HorizontalOptions="EndAndExpand"
+                                    HorizontalTextAlignment="End"
+                                    IsVisible="{Binding IsTourFeeApplicable}"
+                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                    TextColor="#89C99A"
+                                    VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TourFeeApplicableCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label
+                                    Grid.Row="10"
+                                    Grid.Column="1"
+                                    FontFamily="MaterialFontFamily"
+                                    FontSize="44"
+                                    HorizontalOptions="EndAndExpand"
+                                    HorizontalTextAlignment="End"
+                                    IsVisible="{Binding IsTourFeeApplicable, Converter={StaticResource InverseBoolConverter}}"
+                                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                    TextColor="#EF793F"
+                                    VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TourFeeApplicableCommand}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+
+                            <BoxView
+                                BackgroundColor="White"
+                                HeightRequest="1"
+                                IsVisible="{Binding IsTourFeeApplicableControl}"
+                                Opacity="0.2" />
+
+                            <Grid
+                                Margin="0,10,0,10"
+                                Padding="10,10,10,0"
+                                BackgroundColor="#1B1D24"
+                                IsVisible="{Binding IsTravelFeeControl}"
+                                RowSpacing="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.ColumnSpan="2"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="13"
+                                    HorizontalTextAlignment="Start"
+                                    Opacity="0.70"
+                                    Text="Travel fee"
+                                    TextColor="White"
+                                    VerticalTextAlignment="Center" />
+
+                                <controls:CustomEntry
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="18"
+                                    Keyboard="Numeric"
+                                    Placeholder="Travel fee"
+                                    PlaceholderColor="Gray"
+                                    Text="{Binding TravelFee}"
+                                    TextColor="White" />
+                            </Grid>
+                        </StackLayout>
+
+                        <Grid
+                            Grid.Row="42"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsMaximumEventsPerDay}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Maximum events per day"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Maximum events per day"
+                                PlaceholderColor="Gray"
+                                Text="{Binding MaximumEventsPerDay}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="45"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsMoreEventsUponRequestControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="More events upon request?"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsMoreEventsUponRequest}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MoreEventsUponRequestCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsMoreEventsUponRequest, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MoreEventsUponRequestCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="46"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsMoreEventsUponRequestControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="47"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsMinimumPersonRequiredControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Minimum person required"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Minimum person required"
+                                PlaceholderColor="Gray"
+                                Text="{Binding MinimumPeopleRequired}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="48"
+                            Grid.Column="0"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsRequestPeriodControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Request period"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Request period"
+                                PlaceholderColor="Gray"
+                                Text="{Binding MinimumTimeRequired}"
+                                TextColor="White" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Row="48"
+                            Grid.Column="2"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsTimeControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Time"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding MinimumTime}"
+                                ItemsSource="{Binding CustomMinimumTime}"
+                                SelectedItem="{Binding SelectedCustomMinimumTime}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <StackLayout
+                            Grid.Row="49"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            IsVisible="{Binding IsExtraFeeApplicableControl}"
+                            Orientation="Horizontal">
+                            <Label
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Extra fee applicable"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsExtraFeeApplicable}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                                TextColor="#89C99A"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ExtraFeeApplicableCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                            <Label
+                                Grid.Row="10"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="44"
+                                HorizontalOptions="EndAndExpand"
+                                HorizontalTextAlignment="End"
+                                IsVisible="{Binding IsExtraFeeApplicable, Converter={StaticResource InverseBoolConverter}}"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ExtraFeeApplicableCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+
+                        <BoxView
+                            Grid.Row="50"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            IsVisible="{Binding IsExtraFeeApplicableControl}"
+                            Opacity="0.2" />
+
+                        <Grid
+                            Grid.Row="51"
+                            Grid.ColumnSpan="3"
+                            Margin="0,10,0,10"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            IsVisible="{Binding IsExtraFeeControl}"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Extra fee"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Extra fee"
+                                PlaceholderColor="Gray"
+                                Text="{Binding ExtraFee}"
+                                TextColor="White" />
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout
+                    Grid.Row="17"
+                    Grid.Column="1"
+                    IsVisible="{Binding IsThisSubscriptionControl}"
+                    Orientation="Horizontal">
+                    <Label
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="16"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.70"
+                        Text="Is this a subscription?"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        FontFamily="MaterialFontFamily"
+                        FontSize="44"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        IsVisible="{Binding IsThisSubscription}"
+                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                        TextColor="#89C99A"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding IsThisSubscriptionCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label
+                        Grid.Row="10"
+                        Grid.Column="1"
+                        FontFamily="MaterialFontFamily"
+                        FontSize="44"
+                        HorizontalOptions="EndAndExpand"
+                        HorizontalTextAlignment="End"
+                        IsVisible="{Binding IsThisSubscription, Converter={StaticResource InverseBoolConverter}}"
+                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                        TextColor="#EF793F"
+                        VerticalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding IsThisSubscriptionCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+                <BoxView
+                    Grid.Row="18"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    HeightRequest="1"
+                    IsVisible="{Binding IsThisSubscriptionControl}"
+                    Opacity="0.2" />
+
+                <StackLayout
+                    Grid.Row="19"
+                    Grid.Column="1"
+                    IsVisible="{Binding IsThisSubscription}"
+                    Spacing="0">
+                    <Grid
+                        Padding="10,10,10,0"
+                        BackgroundColor="#1B1D24"
+                        ColumnSpacing="5"
+                        RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Subscription type"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <controls:CustomPicker
+                            Title="Select"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            ItemDisplayBinding="{Binding SubscriptionType}"
+                            ItemsSource="{Binding SubscriptionType}"
+                            SelectedItem="{Binding SelectedSubscriptionType}"
+                            TextColor="White"
+                            TitleColor="#797A7D" />
+
+                        <Label
+                            Grid.RowSpan="2"
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="20"
+                            HorizontalTextAlignment="End"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="White"
+                            HeightRequest="1"
+                            Opacity="0.2" />
+                    </Grid>
+
+                    <Grid IsVisible="{Binding IsSubscriptionTypeCustom}">
+                        <Grid
+                            Grid.Column="0"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Every"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomEntry
+                                Grid.Row="1"
+                                BackgroundColor="Transparent"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="18"
+                                Keyboard="Numeric"
+                                Placeholder="Every"
+                                PlaceholderColor="Gray"
+                                Text="{Binding Every}"
+                                TextColor="White" />
+
+                            <BoxView
+                                Grid.Row="2"
+                                BackgroundColor="White"
+                                HeightRequest="1"
+                                Opacity="0.2" />
+                        </Grid>
+
+                        <Grid
+                            Grid.Column="1"
+                            Padding="10,10,10,0"
+                            BackgroundColor="#1B1D24"
+                            ColumnSpacing="5"
+                            RowSpacing="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                Grid.ColumnSpan="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="13"
+                                HorizontalTextAlignment="Start"
+                                Opacity="0.70"
+                                Text="Type"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <controls:CustomPicker
+                                Title="Select"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="16"
+                                ItemDisplayBinding="{Binding CustomSubscriptionType}"
+                                ItemsSource="{Binding CustomSubscriptionType}"
+                                SelectedItem="{Binding SelectedCustomSubscriptionType}"
+                                TextColor="White"
+                                TitleColor="#797A7D" />
+
+                            <Label
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="20"
+                                HorizontalTextAlignment="End"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                TextColor="#EF793F"
+                                VerticalTextAlignment="Center" />
+
+                            <BoxView
+                                Grid.Row="2"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="White"
+                                HeightRequest="1"
+                                Opacity="0.2" />
+                        </Grid>
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Row="20" Grid.Column="1">
+
+                    <Grid
+                        Margin="0,10,0,10"
+                        BackgroundColor="#1B1D24"
+                        RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Tax applicable"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <controls:CustomEntry
+                            Grid.Row="1"
+                            BackgroundColor="Transparent"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="18"
+                            Keyboard="Numeric"
+                            Placeholder="Tax applicable"
+                            PlaceholderColor="Gray"
+                            Text="{Binding TaxApplicable}"
+                            TextColor="White" />
+
+                        <BoxView
+                            Grid.Row="2"
+                            BackgroundColor="White"
+                            Opacity="0.2" />
+                    </Grid>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="If tax is included in price?"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="44"
+                            HorizontalOptions="EndAndExpand"
+                            HorizontalTextAlignment="End"
+                            IsVisible="{Binding IsTaxIsIncludedInPrice}"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                            TextColor="#89C99A"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="44"
+                            HorizontalOptions="EndAndExpand"
+                            HorizontalTextAlignment="End"
+                            IsVisible="{Binding IsTaxIsIncludedInPrice, Converter={StaticResource InverseBoolConverter}}"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TaxIncludedInPriceCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+
+                <BoxView
+                    Grid.Row="21"
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    HeightRequest="1"
+                    Opacity="0.2" />
+
+                <Grid
+                    Grid.Row="22"
+                    Grid.Column="1"
+                    Margin="0,10,0,10"
+                    BackgroundColor="#1B1D24"
+                    IsVisible="{Binding IsTaxIsIncludedInPrice, Converter={StaticResource InverseBoolConverter}}"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="13"
+                        HorizontalTextAlignment="Start"
+                        Opacity="0.70"
+                        Text="Tax"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <controls:CustomEntry
+                        Grid.Row="1"
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="18"
+                        Keyboard="Numeric"
+                        Placeholder="Tax"
+                        PlaceholderColor="Gray"
+                        Text="{Binding TaxIncludedInPrice}"
+                        TextColor="White" />
+
+                    <BoxView
+                        Grid.Row="2"
+                        BackgroundColor="White"
+                        Opacity="0.2" />
+                </Grid>
+
+                <controls:CustomButton
+                    Grid.Row="23"
+                    Grid.Column="1"
+                    Margin="50"
+                    BackgroundColor="White"
+                    Command="{Binding AddProfessionalCompanyServiceCommand}"
+                    CornerRadius="12"
+                    FontFamily="PoppinsSemiBoldFontFamily"
+                    FontSize="15"
+                    HeightRequest="50"
+                    Text="Submit"
+                    TextColor="Black" />
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

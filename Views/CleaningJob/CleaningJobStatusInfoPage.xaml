@@ -1,0 +1,465 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.CleaningJob.CleaningJobStatusInfoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        Margin="0,22,0,0"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="1" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="65" />
+            <RowDefinition Height="2" />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="Transparent"
+            BorderColor="White"
+            BorderWidth="1"
+            Command="{Binding CloseCommand}"
+            CornerRadius="8"
+            Opacity="0.1" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            FontFamily="MaterialFontFamily"
+            FontSize="22"
+            HorizontalTextAlignment="Center"
+            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+            TextColor="White"
+            VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            FontFamily="PoppinsBoldFontFamily"
+            FontSize="33"
+            HorizontalTextAlignment="Start"
+            Text="Sign here"
+            TextColor="White" />
+
+        <Label
+            Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            FontFamily="PoppinsRegularFontFamily"
+            FontSize="25"
+            HorizontalTextAlignment="Start"
+            Opacity="0.42"
+            Text="Assignment executed"
+            TextColor="White" />
+
+        <StackLayout
+            Grid.Row="6"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="StartAndExpand"
+            Orientation="Horizontal"
+            Spacing="25">
+            <Label
+                FontFamily="PoppinsSemiBoldFontFamily"
+                FontSize="18"
+                HorizontalTextAlignment="Start"
+                Opacity="0.42"
+                TextColor="White"
+                VerticalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Casa " />
+                        <Span Text="{Binding CleaningJobStatusInfo.Address}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+
+        <BoxView
+            Grid.Row="8"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="#5B5B79"
+            Opacity="0.67" />
+
+        <ScrollView
+            Grid.Row="9"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid
+                Margin="0,20,0,0"
+                ColumnSpacing="25"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="6" />
+                    <RowDefinition Height="54" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Frame
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Padding="24,37,24,30"
+                    BackgroundColor="Transparent"
+                    BorderColor="#242A37"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid ColumnSpacing="20" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="77" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <BoxView
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.42"
+                            Text="Task"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding CleaningJobStatusInfo.CategoryName}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.42"
+                            Text="Check-in"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding CleaningJobStatusInfo.JobStarted}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.42"
+                            Text="Check-out"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding CleaningJobStatusInfo.JobEnd}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.42"
+                            Text="TM Lead"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding CleaningJobStatusInfo.TeamLeader}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <BoxView
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            BackgroundColor="#242A37" />
+                    </Grid>
+                </Frame>
+
+                <Grid
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Margin="0,33,0,35"
+                    ColumnSpacing="20"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="1" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="46" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <BoxView
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="#242A37" />
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Padding="0"
+                        BackgroundColor="#5B5B79"
+                        CornerRadius="23"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="20"
+                        HeightRequest="46"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{Binding CleaningJobStatusInfo.TeamCount}"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="46" />
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Spacing="8"
+                        VerticalOptions="CenterAndExpand">
+                        <Label
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Peoples"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.42"
+                            Text="Participated"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </StackLayout>
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontFamily="MaterialFontFamily"
+                        FontSize="22"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronRight}"
+                        TextColor="#FFE9AD"
+                        VerticalTextAlignment="Center" />
+
+                    <BoxView
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        BackgroundColor="#242A37" />
+                </Grid>
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Task executed?"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Is it rentable?"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Frame
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Padding="15,0,15,0"
+                    BackgroundColor="#242A37"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="15" />
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Title="Select"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            TextColor="White"
+                            TitleColor="#797A7D">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                        </controls:CustomPicker>
+
+                        <Label
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Padding="15,0,15,0"
+                    BackgroundColor="#242A37"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="15" />
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Title="Select"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            SelectedIndexChanged="CustomPicker_SelectedIndexChanged"
+                            TextColor="White"
+                            TitleColor="#797A7D">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>No</x:String>
+                                    <x:String>Yes</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                        </controls:CustomPicker>
+
+                        <Label
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                            TextColor="#F40000"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+        <Button
+            Grid.Row="10"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            BackgroundColor="#F40000"
+            Command="{Binding UpdateCleaningFinalStatusCommand}"
+            CornerRadius="30"
+            FontFamily="PoppinsSemiBoldFontFamily"
+            FontSize="16"
+            Text="Submit"
+            TextColor="White" />
+    </Grid>
+</ContentPage>

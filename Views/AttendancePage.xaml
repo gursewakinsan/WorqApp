@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.AttendancePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <Grid
+            Margin="0,40,0,0"
+            BackgroundColor="White"
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="84" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ImageButton
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="20,12,20,10"
+                BackgroundColor="Transparent"
+                Command="{Binding CloseCommand}"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="StartAndExpand">
+                <ImageButton.Source>
+                    <FontImageSource
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
+                        Size="25"
+                        Color="Black" />
+                </ImageButton.Source>
+            </ImageButton>
+
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="3">
+                <Label
+                    Margin="10,20,10,0"
+                    FontFamily="SFProSemiboldFontFamily"
+                    FontSize="80"
+                    HorizontalOptions="CenterAndExpand"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Text="{Binding DisplayCurrentTime}"
+                    TextColor="Black" />
+
+                <Label
+                    Margin="10,0,10,0"
+                    FontFamily="SFProSemiboldFontFamily"
+                    FontSize="25"
+                    HorizontalOptions="CenterAndExpand"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Text="{Binding DisplayCurrentDate}"
+                    TextColor="Black" />
+
+                <StackLayout
+                    HeightRequest="125"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="40"
+                    VerticalOptions="EndAndExpand">
+                    <Grid
+                        RowSpacing="5"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="70">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+
+                        <ImageButton
+                            Grid.Row="0"
+                            Padding="15"
+                            BackgroundColor="Transparent"
+                            CornerRadius="30"
+                            HeightRequest="60"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="60">
+                            <ImageButton.Source>
+                                <FontImageSource
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
+                                    Size="50"
+                                    Color="Transparent" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <Label
+                            Grid.Row="1"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            MaxLines="1"
+                            Text="Message"
+                            TextColor="Transparent"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+
+                    <Grid
+                        RowSpacing="5"
+                        VerticalOptions="EndAndExpand"
+                        WidthRequest="100">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoToAttendanceTimerPageCommand}" />
+                        </Grid.GestureRecognizers>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+                        <ImageButton
+                            Grid.Row="0"
+                            Padding="15"
+                            BackgroundColor="#20A7DF"
+                            Command="{Binding GoToAttendanceTimerPageCommand}"
+                            CornerRadius="50"
+                            HeightRequest="100"
+                            WidthRequest="100">
+                            <ImageButton.Source>
+                                <FontImageSource
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.PlayCircleOutline}"
+                                    Size="50"
+                                    Color="White" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <Label
+                            Grid.Row="1"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            Text="Appstore"
+                            TextColor="Transparent"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+
+                    <Grid
+                        RowSpacing="5"
+                        VerticalOptions="StartAndExpand"
+                        WidthRequest="70">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="20" />
+                        </Grid.RowDefinitions>
+
+                        <ImageButton
+                            Grid.Row="0"
+                            Padding="15"
+                            BackgroundColor="Transparent"
+                            CornerRadius="30"
+                            HeightRequest="60"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="60">
+                            <ImageButton.Source>
+                                <FontImageSource
+                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
+                                    Size="50"
+                                    Color="Transparent" />
+                            </ImageButton.Source>
+                        </ImageButton>
+
+                        <Label
+                            Grid.Row="1"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            Text="Admin"
+                            TextColor="Transparent"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+
+            <Image
+                Grid.Row="2"
+                Grid.ColumnSpan="3"
+                Aspect="Fill"
+                Source="icon_curve_bottom_gray.png" />
+
+            <Grid
+                Grid.Row="2"
+                Grid.Column="0"
+                RowSpacing="0"
+                VerticalOptions="EndAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToSickPageCommand}" />
+                </Grid.GestureRecognizers>
+                <ImageButton
+                    Grid.Row="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoToSickPageCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Home}"
+                            Size="25"
+                            Color="#969A9B" />
+                    </ImageButton.Source>
+                </ImageButton>
+                <Label
+                    Grid.Row="1"
+                    FontFamily="SFProSemiboldFontFamily"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Sick "
+                    TextColor="#969A9B"
+                    VerticalTextAlignment="Start" />
+            </Grid>
+
+            <Grid
+                Grid.Row="2"
+                Grid.Column="2"
+                RowSpacing="0"
+                VerticalOptions="EndAndExpand">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToVacationPageCommand}" />
+                </Grid.GestureRecognizers>
+                <ImageButton
+                    Grid.Row="0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding GoToVacationPageCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="{StaticResource MaterialFontFamily}"
+                            Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.AlarmNote}"
+                            Size="25"
+                            Color="#969A9B" />
+                    </ImageButton.Source>
+                </ImageButton>
+                <Label
+                    Grid.Row="1"
+                    FontFamily="SFProSemiboldFontFamily"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Text="Vacation"
+                    TextColor="#969A9B"
+                    VerticalTextAlignment="Start" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

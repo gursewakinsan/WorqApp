@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.Hotel.CheckInGuestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:textinputlayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#181A1F"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            Margin="0,14,0,0"
+            ColumnSpacing="0"
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="28" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="-10,0,0,0"
+                FontFamily="MaterialFontFamily"
+                FontSize="25"
+                HorizontalTextAlignment="Start"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+                TextColor="White"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                FontFamily="PoppinsRegularFontFamily"
+                FontSize="14"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="TailTruncation"
+                MaxLines="1"
+                Text="Check-in guest"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+
+            <Frame
+                Grid.Row="0"
+                Grid.Column="3"
+                Padding="0"
+                BackgroundColor="Transparent"
+                BorderColor="#2A2A31"
+                HasShadow="False"
+                HorizontalOptions="EndAndExpand"
+                IsClippedToBounds="True"
+                VerticalOptions="CenterAndExpand">
+                <Label
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+                    TextColor="White" />
+            </Frame>
+
+            <ScrollView
+                Grid.Row="1"
+                Grid.ColumnSpan="5"
+                VerticalScrollBarVisibility="Never">
+                <Grid
+                    Margin="0,31,0,0"
+                    ColumnSpacing="0"
+                    RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="28" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="28" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="9" />
+                        <RowDefinition Height="52" />
+                        <RowDefinition Height="31" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="31" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        FontFamily="PoppinsBoldFontFamily"
+                        FontSize="32"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="1"
+                        Text="Room app"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="16"
+                        HorizontalTextAlignment="Start"
+                        LineBreakMode="TailTruncation"
+                        LineHeight="1.2"
+                        MaxLines="2"
+                        Opacity="0.4"
+                        Text="Activate a guests room app by following below procedure"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Frame
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Padding="25,26,25,45"
+                        BackgroundColor="#342334"
+                        CornerRadius="20"
+                        HasShadow="False"
+                        IsClippedToBounds="True">
+                        <Grid ColumnSpacing="0" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36" />
+                                <RowDefinition Height="9" />
+                                <RowDefinition Height="48" />
+                                <RowDefinition Height="31" />
+                                <RowDefinition Height="56" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0"
+                                FontAttributes="Bold"
+                                FontFamily="PoppinsBoldFontFamily"
+                                FontSize="24"
+                                HorizontalTextAlignment="Start"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1"
+                                Text="Activation"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <Label
+                                Grid.Row="2"
+                                FontFamily="PoppinsRegularFontFamily"
+                                FontSize="14"
+                                HorizontalTextAlignment="Start"
+                                LineBreakMode="TailTruncation"
+                                LineHeight="1.2"
+                                MaxLines="2"
+                                Opacity="0.7"
+                                Text="Select the room beloning to the guest you wish to activate the app"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+
+                            <textinputlayout:SfTextInputLayout
+                                Grid.Row="4"
+                                ContainerBackground="Transparent"
+                                ContainerType="Outlined"
+                                FocusedStrokeThickness="3"
+                                HeightRequest="56"
+                                Hint="Hotel room"
+                                LeadingViewPosition="Inside"
+                                OutlineCornerRadius="12"
+                                Stroke="#D23CE6"
+                                UnfocusedStrokeThickness="0.5">
+                                <textinputlayout:SfTextInputLayout.HintLabelStyle>
+                                    <textinputlayout:LabelStyle
+                                        FontFamily="PoppinsSemiBoldFontFamily"
+                                        FontSize="12"
+                                        TextColor="#797A7D" />
+                                </textinputlayout:SfTextInputLayout.HintLabelStyle>
+                                <textinputlayout:SfTextInputLayout.TrailingView>
+                                    <Label
+                                        FontFamily="MaterialFontFamily"
+                                        FontSize="20"
+                                        HorizontalOptions="CenterAndExpand"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                                        TextColor="#FF9129"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center" />
+                                </textinputlayout:SfTextInputLayout.TrailingView>
+                                <controls:CustomPicker
+                                    x:Name="pickerHotelRoom"
+                                    Title="Hotel room"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="14"
+                                    ItemDisplayBinding="{Binding FirstName}"
+                                    ItemsSource="{Binding HotelBookingListForFrontDeskCheckinInfo}"
+                                    SelectedIndexChanged="OnHotelRoomCode"
+                                    SelectedItem="{Binding SelectedHotelBookingForFrontDeskCheckin}"
+                                    TextColor="#FF9129"
+                                    TitleColor="#797A7D" />
+                            </textinputlayout:SfTextInputLayout>
+
+                            <Grid
+                                Grid.Row="5"
+                                ColumnSpacing="0"
+                                IsVisible="{Binding IsSelected}"
+                                RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34" />
+                                    <RowDefinition Height="24" />
+                                    <RowDefinition Height="21" />
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="18" />
+                                    <RowDefinition Height="24" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Opacity="0.4"
+                                    Text="Name"
+                                    TextColor="White"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding SelectedHotelBookingForFrontDeskCheckin.FirstName}"
+                                    TextColor="#FF9129"
+                                    VerticalTextAlignment="Center" />
+
+                                <controls:CustomBoxView
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="#D23CE6"
+                                    Opacity="0.3" />
+
+                                <Label
+                                    Grid.Row="5"
+                                    Grid.Column="0"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Opacity="0.4"
+                                    Text="Last name"
+                                    TextColor="White"
+                                    VerticalTextAlignment="Center" />
+
+                                <Label
+                                    Grid.Row="5"
+                                    Grid.Column="1"
+                                    FontFamily="PoppinsRegularFontFamily"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Text="{Binding SelectedHotelBookingForFrontDeskCheckin.LastName}"
+                                    TextColor="#FF9129"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+                        </Grid>
+                    </Frame>
+
+                    <Grid
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Margin="0,49,0,0"
+                        ColumnSpacing="14"
+                        IsVisible="{Binding IsSelected}"
+                        RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="18" />
+                            <RowDefinition Height="36" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="29" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="29" />
+                            <RowDefinition Height="43" />
+                            <RowDefinition Height="72" />
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="51" />
+                            <ColumnDefinition Width="59" />
+                            <ColumnDefinition Width="51" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            FontAttributes="Bold"
+                            FontFamily="PoppinsBoldFontFamily"
+                            FontSize="20"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="Check-in's"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="14"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="2"
+                            Opacity="0.4"
+                            Text="How many have checked-in so far"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.4"
+                            Text="Adults"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#2A2A31"
+                            BorderWidth="1"
+                            Command="{Binding AdultsMinusCommand}"
+                            CornerRadius="10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="25"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Minus}"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="51" />
+
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Padding="0"
+                            BackgroundColor="#342334"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            FontFamily="PoppinsBoldFontFamily"
+                            FontSize="20"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{Binding AdultsCount}"
+                            TextColor="#FF9129"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="59" />
+
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#2A2A31"
+                            BorderWidth="1"
+                            Command="{Binding AdultsPlusCommand}"
+                            CornerRadius="10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="25"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="51" />
+
+                        <controls:CustomBoxView
+                            Grid.Row="6"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="#2A2A31" />
+
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.4"
+                            Text="Children"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#2A2A31"
+                            BorderWidth="1"
+                            Command="{Binding ChildrenMinusCommand}"
+                            CornerRadius="10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="25"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Minus}"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="51" />
+
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="2"
+                            Padding="0"
+                            BackgroundColor="#342334"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            FontFamily="PoppinsBoldFontFamily"
+                            FontSize="20"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{Binding ChildrenCount}"
+                            TextColor="#FF9129"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="59" />
+
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="3"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            BorderColor="#2A2A31"
+                            BorderWidth="1"
+                            Command="{Binding ChildrenPlusCommand}"
+                            CornerRadius="10"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="25"
+                            HeightRequest="43"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Plus}"
+                            TextColor="White"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="51" />
+
+                        <controls:CustomButton
+                            Grid.Row="10"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="Transparent"
+                            BorderColor="#2A2A31"
+                            BorderWidth="1"
+                            Command="{Binding SubmitFrontDeskCheckedInHotelRequestCommand}"
+                            CornerRadius="12"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            Text="Submit"
+                            TextColor="White" />
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage> 

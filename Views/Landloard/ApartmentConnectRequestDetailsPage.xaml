@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorqApp.Views.Landloard.ApartmentConnectRequestDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:fontawesome="clr-namespace:WorqApp.Helper"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#1B1D24"
+    IsBusy="{Binding IsBusy}"
+    NavigationPage.HasNavigationBar="False">
+    <Grid
+        Margin="0,22,0,0"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="28" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="5" />
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            BackgroundColor="Transparent"
+            BorderColor="White"
+            BorderWidth="1"
+            Command="{Binding CloseCommand}"
+            CornerRadius="8"
+            Opacity="0.1" />
+
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            FontFamily="MaterialFontFamily"
+            FontSize="22"
+            HorizontalTextAlignment="Center"
+            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronLeft}"
+            TextColor="White"
+            VerticalTextAlignment="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <ScrollView
+            Grid.Row="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            VerticalScrollBarVisibility="Never">
+            <Grid ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="26" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="44" />
+                    <RowDefinition Height="13" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="21" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="6" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    FontFamily="PoppinsBoldFontFamily"
+                    FontSize="33"
+                    HorizontalTextAlignment="Start"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="1"
+                    Text="{Binding SelectedApartmentConnectRequest.DisplayName}"
+                    TextColor="White" />
+
+                <Label
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="25"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Wish to connect"
+                    TextColor="White" />
+
+                <StackLayout
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal">
+                    <Label
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="18"
+                        HorizontalOptions="StartAndExpand"
+                        Opacity="0.70"
+                        Text="Ticket"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontFamily="PoppinsBoldFontFamily"
+                        FontSize="18"
+                        HorizontalOptions="EndAndExpand"
+                        Text="#45667"
+                        TextColor="#EF793F"
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+
+                <BoxView
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#5B5B79"
+                    Opacity="0.67" />
+
+                <Frame
+                    Grid.Row="8"
+                    Grid.ColumnSpan="2"
+                    Padding="24,24,69,24"
+                    BackgroundColor="#EF793F"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    IsClippedToBounds="True">
+                    <Grid ColumnSpacing="20" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="18" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="18" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="18" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                            <RowDefinition Height="18" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <!--  Name  -->
+                        <Label
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Name"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="1"
+                            Grid.ColumnSpan="2"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalOptions="StartAndExpand"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            TextColor="Black"
+                            VerticalTextAlignment="End"
+                            WidthRequest="166">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SelectedApartmentConnectRequest.FirstName}" />
+                                    <Span Text=" " />
+                                    <Span Text="{Binding SelectedApartmentConnectRequest.LastName}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <BoxView
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="#181A1F"
+                            HorizontalOptions="StartAndExpand"
+                            Opacity="0.70"
+                            WidthRequest="166" />
+
+                        <!--  Address  -->
+                        <Label
+                            Grid.Row="4"
+                            Grid.ColumnSpan="2"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Address"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="5"
+                            Grid.ColumnSpan="2"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalOptions="StartAndExpand"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.Address}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End"
+                            WidthRequest="192" />
+
+                        <BoxView
+                            Grid.Row="6"
+                            Grid.ColumnSpan="2"
+                            BackgroundColor="#181A1F"
+                            HorizontalOptions="StartAndExpand"
+                            Opacity="0.70"
+                            WidthRequest="192" />
+
+                        <!--  Bedrooms  -->
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Bedrooms"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.BedroomCount}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="10"
+                            Grid.Column="0"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+
+                        <!--  Bathrooms  -->
+                        <Label
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Bathrooms"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.BathroomCount}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+
+                        <!--  Size (kvm)  -->
+                        <Label
+                            Grid.Row="12"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Size (kvm)"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="13"
+                            Grid.Column="0"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.PropertyLayout}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="14"
+                            Grid.Column="0"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+
+                        <!--  Building floor  -->
+                        <Label
+                            Grid.Row="12"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Building floor"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="13"
+                            Grid.Column="1"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.FloorsAvailable}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="14"
+                            Grid.Column="1"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+
+                        <!--  Your floor  -->
+                        <Label
+                            Grid.Row="16"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Your floor"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="17"
+                            Grid.Column="0"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.ApartmentFloor}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="18"
+                            Grid.Column="0"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+
+                        <!--  Entrance floor  -->
+                        <Label
+                            Grid.Row="16"
+                            Grid.Column="1"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="13"
+                            HorizontalTextAlignment="Start"
+                            Opacity="0.70"
+                            Text="Entrance floor"
+                            TextColor="#181A1F" />
+
+                        <Label
+                            Grid.Row="17"
+                            Grid.Column="1"
+                            FontFamily="PoppinsSemiBoldFontFamily"
+                            FontSize="16"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding SelectedApartmentConnectRequest.EntranceFloor}"
+                            TextColor="Black"
+                            VerticalTextAlignment="End" />
+
+                        <BoxView
+                            Grid.Row="18"
+                            Grid.Column="1"
+                            BackgroundColor="#181A1F"
+                            Opacity="0.70" />
+                    </Grid>
+                </Frame>
+
+                <Label
+                    Grid.Row="10"
+                    Grid.Column="0"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="18"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Apartment  number"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Label
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="44"
+                    HorizontalTextAlignment="End"
+                    IsVisible="{Binding IsToggleOn}"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitch}"
+                    TextColor="#89C99A"
+                    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Label
+                    Grid.Row="10"
+                    Grid.Column="1"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="44"
+                    HorizontalTextAlignment="End"
+                    IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ToggleSwitchOff}"
+                    TextColor="White"
+                    VerticalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ToggleOnOffCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <BoxView
+                    Grid.Row="12"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#5B5B79"
+                    Opacity="0.67" />
+
+                <Label
+                    Grid.Row="14"
+                    Grid.ColumnSpan="2"
+                    FontFamily="PoppinsRegularFontFamily"
+                    FontSize="13"
+                    HorizontalTextAlignment="Start"
+                    Opacity="0.42"
+                    Text="Temporarily apartment number"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+
+                <Frame
+                    Grid.Row="16"
+                    Grid.ColumnSpan="2"
+                    Padding="20,0,20,0"
+                    BackgroundColor="#242A37"
+                    CornerRadius="12"
+                    HasShadow="False"
+                    HorizontalOptions="StartAndExpand"
+                    IsClippedToBounds="True"
+                    IsVisible="{Binding IsToggleOn}"
+                    WidthRequest="236">
+                    <Grid ColumnSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="15" />
+                        </Grid.ColumnDefinitions>
+                        <controls:CustomPicker
+                            Title="Select"
+                            Grid.Column="0"
+                            FontFamily="PoppinsRegularFontFamily"
+                            FontSize="15"
+                            ItemDisplayBinding="{Binding OfficeApartmentNumber}"
+                            ItemsSource="{Binding AvailableApartmentInfo}"
+                            SelectedItem="{Binding SelectedAvailableApartment}"
+                            TextColor="White"
+                            TitleColor="White" />
+
+                        <Label
+                            Grid.Column="1"
+                            FontFamily="MaterialFontFamily"
+                            FontSize="15"
+                            HorizontalTextAlignment="Center"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.ChevronDown}"
+                            TextColor="#EF793F"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    Grid.Row="16"
+                    Grid.ColumnSpan="2"
+                    Padding="20,0,20,0"
+                    BackgroundColor="#242A37"
+                    CornerRadius="12"
+                    HasShadow="False"
+                    HorizontalOptions="StartAndExpand"
+                    IsClippedToBounds="True"
+                    IsVisible="{Binding IsToggleOn, Converter={StaticResource InverseBoolConverter}}"
+                    WidthRequest="236">
+                    <controls:CustomEntry
+                        BackgroundColor="Transparent"
+                        FontFamily="PoppinsRegularFontFamily"
+                        FontSize="15"
+                        Placeholder="Apartment number"
+                        PlaceholderColor="Gray"
+                        Text="{Binding ApartmentNumber}"
+                        TextColor="White" />
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+        <Grid
+            Grid.Row="4"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            ColumnSpacing="20">
+            <Button
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                BorderColor="White"
+                BorderWidth="1"
+                Command="{Binding RejectConnectApartmentRequestCommand}"
+                CornerRadius="8"
+                Opacity="0.1" />
+
+            <Label
+                Grid.Column="0"
+                FontFamily="MaterialFontFamily"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Close}"
+                TextColor="#EF793F"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding RejectConnectApartmentRequestCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button
+                Grid.Column="1"
+                BackgroundColor="White"
+                Command="{Binding ApproveConnectApartmentRequestCommand}"
+                CornerRadius="8"
+                FontFamily="MaterialFontFamily"
+                FontSize="30"
+                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
+                TextColor="Black" />
+        </Grid>
+    </Grid>
+</ContentPage>
