@@ -9,7 +9,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Notification - (To do)"
     BackgroundColor="White"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
@@ -357,7 +356,6 @@
                     Padding="0"
                     BackgroundColor="White"
                     Clicked="OnLearnMoreButtonClicked"
-                    Command="{Binding LoginWithQloudIdAppCommand}"
                     CornerRadius="25"
                     FontFamily="SFProSemiboldFontFamily"
                     HeightRequest="50"
@@ -365,6 +363,14 @@
                     TextColor="Red"
                     VerticalOptions="EndAndExpand" />
             </StackLayout>
+
+            <controls:CustomBusyIndicator
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="3"
+                IndicatorColor="Black"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                TextColor="Black" />
 
             <!--<Grid
 				Grid.Row="2"

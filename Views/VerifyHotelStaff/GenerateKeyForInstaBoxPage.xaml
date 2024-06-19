@@ -9,7 +9,6 @@
     xmlns:textinputlayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#181A1F"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <Grid
         Margin="0,14,0,5"
@@ -218,5 +217,11 @@
             FontSize="14"
             Text="Submit"
             TextColor="White" />
+
+        <controls:CustomBusyIndicator
+            Grid.RowSpan="3"
+            Grid.ColumnSpan="5"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

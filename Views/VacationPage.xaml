@@ -10,7 +10,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#F4F5F6"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
@@ -213,6 +212,15 @@
                     TextColor="White"
                     VerticalOptions="EndAndExpand" />
             </Grid>
+
+
+            <controls:CustomBusyIndicator
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="3"
+                IndicatorColor="Black"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                TextColor="Black" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

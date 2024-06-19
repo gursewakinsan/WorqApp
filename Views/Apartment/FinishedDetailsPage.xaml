@@ -8,7 +8,6 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="false"
     BackgroundColor="#282A34"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <Grid
         Margin="0,55,0,0"
@@ -427,5 +426,11 @@
                 </ScrollView>
             </Grid>
         </controls:CustomFrame>
+
+        <controls:CustomBusyIndicator
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="3"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

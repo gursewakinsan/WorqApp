@@ -8,7 +8,6 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#1B1D24"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <Grid
         Padding="0,14,0,50"
@@ -74,7 +73,6 @@
             </Label.GestureRecognizers>
         </Label>
 
-
         <StackLayout
             Grid.Row="2"
             Grid.ColumnSpan="2"
@@ -99,7 +97,6 @@
                 VerticalTextAlignment="Center" />
         </StackLayout>
 
-
         <Image
             x:Name="imgNoMissing"
             Grid.Row="1"
@@ -121,5 +118,11 @@
             Text="CREATE A JOB"
             TextColor="#181A1F"
             WidthRequest="255" />
+
+        <controls:CustomBusyIndicator
+            Grid.RowSpan="5"
+            Grid.ColumnSpan="2"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

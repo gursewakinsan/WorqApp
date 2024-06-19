@@ -127,5 +127,5 @@ namespace WorqApp.Views
 			//	await Navigation.PopModalAsync();
 			//});
 		}
-	}
+    }
 }

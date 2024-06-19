@@ -4,90 +4,97 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:core="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:fontawesome="clr-namespace:WorqApp.Helper"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     ios:Page.UseSafeArea="True"
     BackgroundColor="Black"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
-    <ScrollView VerticalScrollBarVisibility="Never">
-        <StackLayout Padding="0,100,0,80" Spacing="50">
-            <StackLayout
-                HorizontalOptions="CenterAndExpand"
-                Spacing="0"
-                VerticalOptions="StartAndExpand">
-                <ImageButton
-                    BackgroundColor="Transparent"
-                    HeightRequest="180"
-                    HorizontalOptions="Center"
-                    Source="splash.png"
-                    VerticalOptions="Center"
-                    WidthRequest="180" />
-
-                <Label
-                    Margin="0,40,0,0"
-                    FontSize="25"
-                    HorizontalTextAlignment="Center"
-                    IsVisible="False"
-                    Text="Noffa +"
-                    TextColor="White"
-                    VerticalTextAlignment="Start" />
-
-                <Label
-                    FontSize="35"
-                    HorizontalTextAlignment="Center"
-                    IsVisible="False"
-                    Text="Your digital ID"
-                    TextColor="White"
-                    VerticalTextAlignment="Start" />
-            </StackLayout>
-
-            <Frame
-                Margin="25"
-                Padding="0"
-                BackgroundColor="White"
-                CornerRadius="10"
-                HasShadow="False"
-                HeightRequest="55"
-                VerticalOptions="EndAndExpand">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding LoginWithQloudIdAppCommand}" />
-                </Frame.GestureRecognizers>
+    <Grid>
+        <ScrollView Grid.Row="0" VerticalScrollBarVisibility="Never">
+            <StackLayout Padding="0,100,0,80" Spacing="50">
                 <StackLayout
                     HorizontalOptions="CenterAndExpand"
-                    Orientation="Horizontal"
-                    Spacing="0">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
-                    </StackLayout.GestureRecognizers>
-                    <Label
-                        FontFamily="MaterialFontFamily"
-                        FontSize="25"
-                        Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarkedCircleOutline}"
-                        TextColor="Black"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand">
+                    <ImageButton
+                        BackgroundColor="Transparent"
+                        HeightRequest="180"
+                        HorizontalOptions="Center"
+                        Source="splash.png"
+                        VerticalOptions="Center"
+                        WidthRequest="180" />
 
                     <Label
-                        Margin="10,0,0,0"
-                        BackgroundColor="Transparent"
-                        FontFamily="SFProSemiboldFontFamily"
-                        FontSize="16"
-                        Text="Login With QloudID"
-                        TextColor="Black"
-                        VerticalTextAlignment="Center">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
-                        </Label.GestureRecognizers>
-                    </Label>
+                        Margin="0,40,0,0"
+                        FontSize="25"
+                        HorizontalTextAlignment="Center"
+                        IsVisible="False"
+                        Text="Noffa +"
+                        TextColor="White"
+                        VerticalTextAlignment="Start" />
+
+                    <Label
+                        FontSize="35"
+                        HorizontalTextAlignment="Center"
+                        IsVisible="False"
+                        Text="Your digital ID"
+                        TextColor="White"
+                        VerticalTextAlignment="Start" />
                 </StackLayout>
-            </Frame>
-        </StackLayout>
-    </ScrollView>
+
+                <Frame
+                    Margin="25"
+                    Padding="0"
+                    BackgroundColor="White"
+                    CornerRadius="10"
+                    HasShadow="False"
+                    HeightRequest="55"
+                    VerticalOptions="EndAndExpand">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginWithQloudIdAppCommand}" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            FontFamily="MaterialFontFamily"
+                            FontSize="25"
+                            Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.CheckboxMarkedCircleOutline}"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Margin="10,0,0,0"
+                            BackgroundColor="Transparent"
+                            FontFamily="SFProSemiboldFontFamily"
+                            FontSize="16"
+                            Text="Login With QloudID"
+                            TextColor="Black"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginWithSessionCommand}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+
+        <controls:CustomBusyIndicator
+            Grid.Row="0"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
+    </Grid>
 </ContentPage>

@@ -3,11 +3,11 @@
     x:Class="WorqApp.Views.AttendancePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:fontawesome="clr-namespace:WorqApp.Helper"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="White"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
@@ -28,14 +28,14 @@
             <ImageButton
                 Grid.Row="0"
                 Grid.Column="0"
-                Padding="20,12,20,10"
+                Margin="20,12,20,10"
                 BackgroundColor="Transparent"
                 Command="{Binding CloseCommand}"
                 HorizontalOptions="StartAndExpand"
                 VerticalOptions="StartAndExpand">
                 <ImageButton.Source>
                     <FontImageSource
-                        FontFamily="{StaticResource MaterialFontFamily}"
+                        FontFamily="MaterialFontFamily"
                         Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.ArrowLeft}"
                         Size="25"
                         Color="Black" />
@@ -89,7 +89,7 @@
                             WidthRequest="60">
                             <ImageButton.Source>
                                 <FontImageSource
-                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontFamily="MaterialFontFamily"
                                     Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Message}"
                                     Size="50"
                                     Color="Transparent" />
@@ -117,22 +117,34 @@
                             <RowDefinition Height="100" />
                             <RowDefinition Height="20" />
                         </Grid.RowDefinitions>
-                        <ImageButton
+
+                        <Frame
                             Grid.Row="0"
-                            Padding="15"
+                            Padding="0"
                             BackgroundColor="#20A7DF"
-                            Command="{Binding GoToAttendanceTimerPageCommand}"
                             CornerRadius="50"
+                            HasShadow="False"
                             HeightRequest="100"
+                            HorizontalOptions="CenterAndExpand"
+                            IsClippedToBounds="True"
+                            VerticalOptions="CenterAndExpand"
                             WidthRequest="100">
-                            <ImageButton.Source>
-                                <FontImageSource
-                                    FontFamily="{StaticResource MaterialFontFamily}"
-                                    Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.PlayCircleOutline}"
-                                    Size="50"
-                                    Color="White" />
-                            </ImageButton.Source>
-                        </ImageButton>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding GoToAttendanceTimerPageCommand}" />
+                            </Frame.GestureRecognizers>
+                            <Label
+                                Grid.Row="0"
+                                FontFamily="MaterialFontFamily"
+                                FontSize="75"
+                                HorizontalTextAlignment="Center"
+                                Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.PlayCircleOutline}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToAttendanceTimerPageCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Frame>
 
                         <Label
                             Grid.Row="1"
@@ -163,7 +175,7 @@
                             WidthRequest="60">
                             <ImageButton.Source>
                                 <FontImageSource
-                                    FontFamily="{StaticResource MaterialFontFamily}"
+                                    FontFamily="MaterialFontFamily"
                                     Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Admin}"
                                     Size="50"
                                     Color="Transparent" />
@@ -190,25 +202,25 @@
             <Grid
                 Grid.Row="2"
                 Grid.Column="0"
+                RowDefinitions="30,30"
                 RowSpacing="0"
                 VerticalOptions="EndAndExpand">
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GoToSickPageCommand}" />
                 </Grid.GestureRecognizers>
-                <ImageButton
+                <Label
                     Grid.Row="0"
-                    BackgroundColor="Transparent"
-                    Command="{Binding GoToSickPageCommand}"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
                     HorizontalOptions="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Home}"
+                    TextColor="#969A9B"
                     VerticalOptions="End">
-                    <ImageButton.Source>
-                        <FontImageSource
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.Home}"
-                            Size="25"
-                            Color="#969A9B" />
-                    </ImageButton.Source>
-                </ImageButton>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToSickPageCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <Label
                     Grid.Row="1"
                     FontFamily="SFProSemiboldFontFamily"
@@ -222,25 +234,25 @@
             <Grid
                 Grid.Row="2"
                 Grid.Column="2"
+                RowDefinitions="30,30"
                 RowSpacing="0"
                 VerticalOptions="EndAndExpand">
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding GoToVacationPageCommand}" />
                 </Grid.GestureRecognizers>
-                <ImageButton
+                <Label
                     Grid.Row="0"
-                    BackgroundColor="Transparent"
-                    Command="{Binding GoToVacationPageCommand}"
+                    FontFamily="MaterialFontFamily"
+                    FontSize="25"
                     HorizontalOptions="Center"
+                    Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.AlarmNote}"
+                    TextColor="#969A9B"
                     VerticalOptions="End">
-                    <ImageButton.Source>
-                        <FontImageSource
-                            FontFamily="{StaticResource MaterialFontFamily}"
-                            Glyph="{x:Static fontawesome:NoffaPlusAppFlatIcons.AlarmNote}"
-                            Size="25"
-                            Color="#969A9B" />
-                    </ImageButton.Source>
-                </ImageButton>
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToVacationPageCommand}" />
+                    </Label.GestureRecognizers>
+                </Label>
+
                 <Label
                     Grid.Row="1"
                     FontFamily="SFProSemiboldFontFamily"
@@ -250,6 +262,14 @@
                     TextColor="#969A9B"
                     VerticalTextAlignment="Start" />
             </Grid>
+
+            <controls:CustomBusyIndicator
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="3"
+                IndicatorColor="Black"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                TextColor="Black" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

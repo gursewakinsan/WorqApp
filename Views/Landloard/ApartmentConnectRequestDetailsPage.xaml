@@ -8,7 +8,6 @@
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#1B1D24"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <Grid
         Margin="0,22,0,0"
@@ -572,5 +571,11 @@
                 Text="{x:Static fontawesome:NoffaPlusAppFlatIcons.Check}"
                 TextColor="Black" />
         </Grid>
+
+        <controls:CustomBusyIndicator
+            Grid.RowSpan="6"
+            Grid.ColumnSpan="5"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

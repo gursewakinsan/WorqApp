@@ -3,11 +3,11 @@
     x:Class="WorqApp.Views.Landloard.ApartmentConnectRequestPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
     xmlns:fontawesome="clr-namespace:WorqApp.Helper"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#1B1D24"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <Grid
         Margin="0,22,0,0"
@@ -354,5 +354,11 @@
                 </BindableLayout.ItemTemplate>
             </StackLayout>
         </ScrollView>
+
+        <controls:CustomBusyIndicator
+            Grid.RowSpan="10"
+            Grid.ColumnSpan="5"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

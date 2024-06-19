@@ -3,11 +3,11 @@
     x:Class="WorqApp.Views.Queue.OperatorStatusQueueListPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
     xmlns:fontawesome="clr-namespace:WorqApp.Helper"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#181A1F"
-    IsBusy="{Binding IsBusy}"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
@@ -467,6 +467,12 @@
                     TextColor="#5B5B79"
                     VerticalTextAlignment="Center" />
             </Grid>
+
+            <controls:CustomBusyIndicator
+                Grid.RowSpan="3"
+                Grid.ColumnSpan="3"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
     <!--<ContentPage.Content>
