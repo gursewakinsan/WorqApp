@@ -33,7 +33,7 @@
             <ImageButton
                 Grid.Row="0"
                 Grid.Column="0"
-                Padding="20,12,20,10"
+                Margin="20,12,20,10"
                 BackgroundColor="Transparent"
                 Command="{Binding CloseCommand}"
                 HorizontalOptions="StartAndExpand"
