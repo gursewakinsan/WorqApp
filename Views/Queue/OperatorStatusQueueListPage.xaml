@@ -410,6 +410,7 @@
             <Grid
                 Grid.Row="2"
                 Grid.ColumnSpan="3"
+                ColumnDefinitions="*,*,*,*,*"
                 ColumnSpacing="5"
                 RowSpacing="0">
                 <Label
@@ -471,7 +472,6 @@
             <controls:CustomBusyIndicator
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="3"
-                IsRunning="{Binding IsBusy}"
                 IsVisible="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>

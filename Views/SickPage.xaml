@@ -176,10 +176,7 @@
             <controls:CustomBusyIndicator
                 Grid.RowSpan="2"
                 Grid.ColumnSpan="5"
-                IndicatorColor="Black"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}"
-                TextColor="Black" />
+                IsVisible="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

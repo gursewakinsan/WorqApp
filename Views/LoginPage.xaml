@@ -92,9 +92,6 @@
             </StackLayout>
         </ScrollView>
 
-        <controls:CustomBusyIndicator
-            Grid.Row="0"
-            IsRunning="{Binding IsBusy}"
-            IsVisible="{Binding IsBusy}" />
+        <controls:CustomBusyIndicator Grid.Row="0" IsVisible="{Binding IsBusy}" />
     </Grid>
 </ContentPage>

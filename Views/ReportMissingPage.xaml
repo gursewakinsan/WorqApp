@@ -114,12 +114,7 @@
                 TextColor="Red"
                 VerticalTextAlignment="Center" />
 
-            <controls:CustomBusyIndicator
-                Grid.RowSpan="2"
-                IndicatorColor="Black"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}"
-                TextColor="Black" />
+            <controls:CustomBusyIndicator Grid.RowSpan="2" IsVisible="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

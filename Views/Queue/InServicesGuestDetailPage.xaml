@@ -353,10 +353,7 @@
                 TextColor="White"
                 VerticalOptions="EndAndExpand" />
 
-            <controls:CustomBusyIndicator
-                Grid.RowSpan="3"
-                IsRunning="{Binding IsBusy}"
-                IsVisible="{Binding IsBusy}" />
+            <controls:CustomBusyIndicator Grid.RowSpan="3" IsVisible="{Binding IsBusy}" />
         </Grid>
 
 

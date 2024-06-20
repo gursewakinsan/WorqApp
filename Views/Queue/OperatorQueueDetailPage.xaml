@@ -234,7 +234,6 @@
             <controls:CustomBusyIndicator
                 Grid.RowSpan="3"
                 Grid.ColumnSpan="2"
-                IsRunning="{Binding IsBusy}"
                 IsVisible="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
