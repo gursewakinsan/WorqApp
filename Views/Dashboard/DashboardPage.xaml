@@ -147,6 +147,7 @@
                             ClassId="0"
                             CornerRadius="15"
                             HasShadow="False"
+                            HeightRequest="120"
                             HorizontalOptions="StartAndExpand"
                             IsClippedToBounds="True"
                             WidthRequest="280">

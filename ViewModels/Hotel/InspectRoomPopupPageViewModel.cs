@@ -2,6 +2,7 @@
 using WorqApp.Interfaces;
 using System.Windows.Input;
 using System.Threading.Tasks;
+using Mopups.Services;
 
 namespace WorqApp.ViewModels
 {
@@ -29,8 +30,8 @@ namespace WorqApp.ViewModels
 				RoomId = SelectedIncepectionStaffInfo.RoomId,
 				UserId = Helper.Helper.LoggedInUserId
 			});
-			//await Navigation.PopPopupAsync();
-			SelectedIncepectionStaffInfo.CallBack.Invoke();
+            await MopupService.Instance.PopAsync();
+            SelectedIncepectionStaffInfo.CallBack.Invoke();
 			IsBusy = false;
 		}
 		#endregion

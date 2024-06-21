@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Threading.Tasks;
+using Mopups.Services;
 
 namespace WorqApp.ViewModels
 {
@@ -20,8 +21,8 @@ namespace WorqApp.ViewModels
 		}
 		private async Task ExecuteCleanedRoomCommand()
 		{
-			//await Navigation.PopPopupAsync();
-			if (CheckedOutCleningStaffInfo.StaffAssignedId.Equals(Helper.Helper.LoggedInUserId))
+            await MopupService.Instance.PopAsync();
+            if (CheckedOutCleningStaffInfo.StaffAssignedId.Equals(Helper.Helper.LoggedInUserId))
 				CheckedOutCleningStaffInfo.CallBack.Invoke();
 		}
 		#endregion

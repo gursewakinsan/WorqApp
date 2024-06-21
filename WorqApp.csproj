@@ -60,6 +60,7 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Mopups" Version="1.3.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Syncfusion.Maui.Core" Version="26.1.35" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
@@ -71,6 +72,30 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="Controls\CustomBusyIndicator.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\CheckedOutCleanedRoomPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\CheckedOutCleanRoomPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\CleanedRoomByNamePopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\CleanRoomPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\InspectedByRoomPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\Hotel\InspectRoomPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\ItemOutOfStockPopupPage.xaml">
+	    <Generator></Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PopupPages\RemoveTheDishPopupPage.xaml">
 	    <Generator></Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminInfoPage.xaml">

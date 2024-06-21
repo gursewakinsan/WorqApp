@@ -1,4 +1,5 @@
-﻿using ZXing.Net.Maui.Controls;
+﻿using Mopups.Hosting;
+using ZXing.Net.Maui.Controls;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
@@ -12,6 +13,7 @@ namespace WorqApp
             builder
                 .UseMauiApp<App>()
                 .UseBarcodeReader()
+                .ConfigureMopups()
                 .ConfigureSyncfusionCore()
                 .ConfigureFonts(fonts =>
                 {

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    x:Class="WorqApp.PopupPages.RemoveTheDishPopupPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:WorqApp.Controls"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    BackgroundColor="{StaticResource OverlayBgcolor}"
+    CloseWhenBackgroundIsClicked="False">
+    <Border
+        Padding="30"
+        BackgroundColor="#282732"
+        VerticalOptions="EndAndExpand">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="30" />
+        </Border.StrokeShape>
+        <StackLayout HorizontalOptions="CenterAndExpand" Spacing="0">
+            <Label
+                FontAttributes="Bold"
+                FontFamily="PoppinsBoldFontFamily"
+                FontSize="24"
+                HorizontalTextAlignment="Center"
+                LineBreakMode="TailTruncation"
+                MaxLines="1"
+                Text="Removal of dish"
+                TextColor="White" />
+
+            <Label
+                Margin="0,5,0,40"
+                FontFamily="PoppinsRegularFontFamily"
+                FontSize="14"
+                HorizontalOptions="CenterAndExpand"
+                HorizontalTextAlignment="Center"
+                LineHeight="1.2"
+                MaxLines="3"
+                Opacity="0.7"
+                Text="If you remove this dish then it will no longer appear under this menu. "
+                TextColor="White" />
+
+            <controls:CustomButton
+                BackgroundColor="#5663FF"
+                Command="{Binding DeleteDishItemCommand}"
+                CornerRadius="10"
+                FontFamily="SansProSemiBoldFontFamily"
+                HeightRequest="48"
+                Text="Remove"
+                TextColor="White"
+                WidthRequest="299" />
+        </StackLayout>
+    </Border>
+</pages:PopupPage>

@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Mopups.Services;
 
 namespace WorqApp.ViewModels
 {
@@ -90,7 +91,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToInspectRoomPopupPageCommand()
 		{
 			SelectedIncepectionStaff.CallBack = CallBackIncepectionStaff;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.InspectRoomPopupPage(SelectedIncepectionStaff));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.InspectRoomPopupPage(SelectedIncepectionStaff));
 		}
 
 		private void CallBackIncepectionStaff()
@@ -108,7 +109,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToInspectedRoomPopupPageCommand()
 		{
 			SelectedIncepectionStaff.CallBack = CallBackInspectedStaff;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.InspectedByRoomPopupPage(SelectedIncepectionStaff));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.InspectedByRoomPopupPage(SelectedIncepectionStaff));
 		}
 
 		private async void CallBackInspectedStaff()

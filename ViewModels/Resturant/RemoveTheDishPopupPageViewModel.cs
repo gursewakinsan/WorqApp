@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Mopups.Services;
+using System.Windows.Input;
 using WorqApp.Interfaces;
 using WorqApp.Service;
 
@@ -28,8 +29,8 @@ namespace WorqApp.ViewModels
 				AvailableDishId = DeleteDishItemPopupPageContext.AvailableDishId,
 			});
 			IsBusy = false;
-			//await Navigation.PopPopupAsync();
-			DeleteDishItemPopupPageContext.CallBack.Invoke();
+            await MopupService.Instance.PopAsync();
+            DeleteDishItemPopupPageContext.CallBack.Invoke();
 		}
 		#endregion
 

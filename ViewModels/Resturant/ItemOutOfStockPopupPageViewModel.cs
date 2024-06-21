@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Mopups.Services;
+using System.Windows.Input;
 using WorqApp.Interfaces;
 using WorqApp.Service;
 
@@ -29,8 +30,8 @@ namespace WorqApp.ViewModels
 				InStock = 0
 			});
             IsBusy = false;
-            //await Navigation.PopPopupAsync();
-			ItemOutOfStockPopupPageContext.CallBack.Invoke();
+            await MopupService.Instance.PopAsync();
+            ItemOutOfStockPopupPageContext.CallBack.Invoke();
 		}
 		#endregion
 

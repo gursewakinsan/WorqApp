@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using Mopups.Services;
+using System.Windows.Input;
 using WorqApp.Interfaces;
 using WorqApp.Service;
 
@@ -26,7 +27,7 @@ namespace WorqApp.ViewModels
 				AvailableDishId = DishDetailsInfo.Id,
 				CallBack = ItemOutOfStockPopupCallBack
 			};
-			//await Navigation.PushPopupAsync(new PopupPages.ItemOutOfStockPopupPage(context));
+			await MopupService.Instance.PushAsync(new PopupPages.ItemOutOfStockPopupPage(context));
 		}
 
 		private async void ItemOutOfStockPopupCallBack()
@@ -69,7 +70,7 @@ namespace WorqApp.ViewModels
 				AvailableDishId = DishDetailsInfo.Id,
 				CallBack = DeleteDishItemPopupCallBack
 			};
-			//await Navigation.PushPopupAsync(new PopupPages.RemoveTheDishPopupPage(context));
+			await MopupService.Instance.PushAsync(new PopupPages.RemoveTheDishPopupPage(context));
 		}
 
 		private async void DeleteDishItemPopupCallBack()

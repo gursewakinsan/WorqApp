@@ -5,6 +5,7 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Mopups.Services;
 
 namespace WorqApp.ViewModels
 {
@@ -181,7 +182,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToCleanRoomPopupPageCommand()
 		{
 			SelectedCleningStaff.CallBack = CallBackCleningStaff;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanRoomPopupPage(SelectedCleningStaff));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.CleanRoomPopupPage(SelectedCleningStaff));
 		}
 
 		private void CallBackCleningStaff()
@@ -199,7 +200,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToCleanedRoomPopupPageCommand()
 		{
 			SelectedCleningStaff.CallBack = CallBackCleanedStaff;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.CleanedRoomByNamePopupPage(SelectedCleningStaff));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.CleanedRoomByNamePopupPage(SelectedCleningStaff));
 		}
 
 		private async void CallBackCleanedStaff()
@@ -217,7 +218,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToCheckedOutCleanRoomPopupPageCommand()
 		{
 			SelectedCheckedOutItem.CallBack = CallBackCheckedOut;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.CheckedOutCleanRoomPopupPage(SelectedCheckedOutItem));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.CheckedOutCleanRoomPopupPage(SelectedCheckedOutItem));
 		}
 
 		private void CallBackCheckedOut()
@@ -235,7 +236,7 @@ namespace WorqApp.ViewModels
 		private async Task ExecuteGoToCheckedOutCleanedRoomPopupPageCommand()
 		{
 			SelectedCheckedOutItem.CallBack = CallBackCheckedOutCleanedStaff;
-			//await Navigation.PushPopupAsync(new PopupPages.Hotel.CheckedOutCleanedRoomPopupPage(SelectedCheckedOutItem));
+			await MopupService.Instance.PushAsync(new PopupPages.Hotel.CheckedOutCleanedRoomPopupPage(SelectedCheckedOutItem));
 		}
 
 		private async void CallBackCheckedOutCleanedStaff()

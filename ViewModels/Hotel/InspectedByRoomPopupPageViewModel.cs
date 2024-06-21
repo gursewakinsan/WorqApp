@@ -1,5 +1,6 @@
 ﻿using System.Windows.Input;
 using System.Threading.Tasks;
+using Mopups.Services;
 
 namespace WorqApp.ViewModels
 {
@@ -20,8 +21,8 @@ namespace WorqApp.ViewModels
 		}
 		private async Task ExecuteInspectedRoomCommand()
 		{
-			//await Navigation.PopPopupAsync();
-			if (InspectedByRoomInfo.InspectorId.Equals(Helper.Helper.LoggedInUserId))
+            await MopupService.Instance.PopAsync();
+            if (InspectedByRoomInfo.InspectorId.Equals(Helper.Helper.LoggedInUserId))
 				InspectedByRoomInfo.CallBack.Invoke();
 		}
 		#endregion
